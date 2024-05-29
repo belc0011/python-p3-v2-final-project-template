@@ -15,10 +15,11 @@ from db.team import Team
 
 def main():
     while True:
-        menu1_choice = menu1()
-        if menu1_choice == 0:
+        menu1()
+        choice1 = int(input("> "))
+        if choice1 == 0:
             exit_program()
-        elif menu1_choice == 1:
+        elif choice1 == 1:
             print_all_teams()
             menu2()
             choice2 = int(input("> ")) ##choice2 should hold team id
@@ -34,11 +35,12 @@ def main():
                     get_all_players(choice2)
                     team_info_printer(choice2)
                     menu4()
+                    choice4 = int(input("> "))
                 elif choice3 == 2:
                     add_new_player(choice2)
                 elif choice3 == 3:
                     coach_info(choice2)
-        elif menu1_choice == 2:
+        elif choice1 == 2:
             create_team()
         else:
             print("Invalid choice")
@@ -47,7 +49,6 @@ def menu1():
     print("0. Exit the program")
     print("1. List available teams")
     print("2. Add a team")
-    return int(input("> "))
 
 def menu2():
     print("Select the number for the team to diplay, or press 0 to exit the program: ")
