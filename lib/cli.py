@@ -56,5 +56,10 @@ def menu3():
     print("3. List current coach info")
     print("0. Exit the program")
 
+def menu4():
+    print("1. Delete Player")
+    print("2. Update player name")
+    print("0. Exit the program")
+
 if __name__ == "__main__":
     main()
