@@ -33,7 +33,7 @@ def exit_program():
 
 def team_info_printer(id):
     team = Team.find_by_id(id)
-    print(team.name)
+    print(f"Menu for {team.name}")
 
 def add_new_player(team_id):
     player_name = input("Enter player's name: ").title()
