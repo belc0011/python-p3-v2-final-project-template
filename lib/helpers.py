@@ -50,5 +50,6 @@ def coach_info(team_id):
 
 def delete_player(name_list, index):
     player = Player.find_by_name(name_list[index])
-    print(player)
+    Player.delete(player)
+    print("Player successfully deleted!")
 
