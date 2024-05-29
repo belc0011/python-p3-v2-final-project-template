@@ -35,23 +35,26 @@ def main():
                     exit_program()
                 elif choice3 == 1:
                     players = get_all_players(choice2)
-                    team_info_printer(choice2)
-                    menu4()
-                    choice4 = int(input("> "))
-                    if choice4 == 0:
-                        exit_program()
-                    elif choice4 == 1:
-                        choice5 = int(input("Select the number for the player to delete, or press 0 to exit: "))
-                        if choice5 == 0:
+                    if(players):
+                        team_info_printer(choice2)
+                        menu4()
+                        choice4 = int(input("> "))
+                        if choice4 == 0:
                             exit_program()
-                        else:
-                            delete_player(players, choice5)
-                    elif choice4 == 2:
-                        choice5 = int(input("Select the number for the player to update, or press 0 to exit: "))
-                        if choice5 == 0:
-                            exit_program()
-                        else:
-                            update_player(players, choice5)
+                        elif choice4 == 1:
+                            choice5 = int(input("Select the number for the player to delete, or press 0 to exit: "))
+                            if choice5 == 0:
+                                exit_program()
+                            else:
+                                delete_player(players, choice5)
+                        elif choice4 == 2:
+                            choice5 = int(input("Select the number for the player to update, or press 0 to exit: "))
+                            if choice5 == 0:
+                                exit_program()
+                            else:
+                                update_player(players, choice5)
+                    else:
+                        print("This team currently has no players.")
                 elif choice3 == 2:
                     add_new_player(choice2)
                 elif choice3 == 3:
