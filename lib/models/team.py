@@ -79,7 +79,6 @@ class Team:
         type(self).teams[self.id] = self
 
         print("Saved team:", self.name, self.coach)
-        print("Teams dictionary:", type(self).teams)
 
     @classmethod
     def create(cls, name, coach):
@@ -171,7 +170,7 @@ class Team:
 
     def players(self):
         """Return list of players associated with current team"""
-        from db.player import Player
+        from models.player import Player
         sql = """
             SELECT * FROM players
             WHERE team = ?
