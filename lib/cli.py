@@ -9,7 +9,8 @@ from helpers import (
     get_all_players,
     add_new_player,
     coach_info,
-    delete_player
+    delete_player,
+    update_player
 )
 from db.player import Player
 from db.team import Team
@@ -46,7 +47,11 @@ def main():
                         else:
                             delete_player(players, choice5)
                     elif choice4 == 2:
-                        pass
+                        choice5 = int(input("Select the number for the player to update, or press 0 to exit: "))
+                        if choice5 == 0:
+                            exit_program()
+                        else:
+                            update_player(players, choice5)
                 elif choice3 == 2:
                     add_new_player(choice2)
                 elif choice3 == 3:

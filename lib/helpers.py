@@ -53,3 +53,13 @@ def delete_player(name_list, index):
     Player.delete(player)
     print("Player successfully deleted!")
 
+def update_player(name_list, index):
+    player = Player.find_by_name(name_list[index])
+    new_name = input("Enter the updated name, or press 0 to exit: ")
+    if new_name == "0":
+        exit_program()
+    else:
+        player.name = new_name.title()
+        Player.update(player)
+        print("Player name successfully updated!")
+
