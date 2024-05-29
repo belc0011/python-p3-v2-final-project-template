@@ -72,4 +72,4 @@ def update_player(name_list, index):
 def team_size(team_id):
     team = Team.find_by_id(team_id)
     player_list = Team.players(team)
-    print(player_list)
+    print(f"There are {len(player_list)} total players on {team.name}")
