@@ -11,7 +11,8 @@ from helpers import (
     coach_info,
     delete_player,
     update_player,
-    set_coach
+    set_coach,
+    team_size
 )
 from db.player import Player
 from db.team import Team
@@ -25,7 +26,7 @@ def main():
         elif choice1 == 1:
             print_all_teams()
             menu2()
-            choice2 = int(input("> ")) ##choice2 should hold team id
+            choice2 = int(input("> ")) ##choice2 holds team id
             if choice2 == 0:
                 exit_program()
             else:
@@ -62,6 +63,8 @@ def main():
                     coach_info(choice2)
                 elif choice3 == 4:
                     set_coach(choice2)
+                elif choice3 == 5:
+                    team_size(choice2)
         elif choice1 == 2:
             create_team()
         else:
@@ -80,6 +83,7 @@ def menu3():
     print("2. Add a new player to the team")
     print("3. List current coach info")
     print("4. Update coach info")
+    print("5. Display total number of players on team")
     print("0. Exit the program")
 
 def menu4():

@@ -69,3 +69,7 @@ def update_player(name_list, index):
         Player.update(player)
         print("Player name successfully updated!")
 
+def team_size(team_id):
+    team = Team.find_by_id(team_id)
+    player_list = Team.players(team)
+    print(player_list)

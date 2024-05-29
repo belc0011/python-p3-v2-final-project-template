@@ -176,7 +176,7 @@ class Team:
             SELECT * FROM players
             WHERE team = ?
         """
-        CURSOR.execute(sql, (self.team,),)
+        CURSOR.execute(sql, (self.name,),)
 
         rows = CURSOR.fetchall()
         return [
