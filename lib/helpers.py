@@ -1,6 +1,6 @@
 # lib/helpers.py
-from db.player import Player
-from db.team import Team
+from models.player import Player
+from models.team import Team
 
 def create_team():
     team = input("Enter the team name, or type 0 to exit: ").title()

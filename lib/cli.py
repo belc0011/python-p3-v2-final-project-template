@@ -14,8 +14,8 @@ from helpers import (
     set_coach,
     team_size
 )
-from db.player import Player
-from db.team import Team
+from models.player import Player
+from models.team import Team
 
 def main():
     while True:
