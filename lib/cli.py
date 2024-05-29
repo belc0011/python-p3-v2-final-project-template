@@ -8,7 +8,8 @@ from helpers import (
     print_all_teams,
     get_all_players,
     add_new_player,
-    coach_info
+    coach_info,
+    delete_player
 )
 from db.player import Player
 from db.team import Team
@@ -32,10 +33,16 @@ def main():
                 if choice3 == 0:
                     exit_program()
                 elif choice3 == 1:
-                    get_all_players(choice2)
+                    players = get_all_players(choice2)
                     team_info_printer(choice2)
                     menu4()
                     choice4 = int(input("> "))
+                    if choice4 == 0:
+                        exit_program()
+                    elif choice4 == 1:
+                        delete_player(players, choice4)
+                    elif choice4 == 2:
+                        pass
                 elif choice3 == 2:
                     add_new_player(choice2)
                 elif choice3 == 3:

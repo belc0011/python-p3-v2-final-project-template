@@ -25,8 +25,11 @@ def print_all_teams():
 def get_all_players(id):
     team = Team.find_by_id(id)
     players = Player.find_by_team(team.name)
+    player_dict = {}
     for (index, player) in enumerate(players):
         print(f"{index + 1}. {player.name}")
+        player_dict[index + 1] = player.name
+    return player_dict
 def exit_program():
     print("Goodbye!")
     exit()
@@ -44,4 +47,7 @@ def add_new_player(team_id):
 
 def coach_info(team_id):
     print(Team.find_by_id(team_id).coach)
+
+def delete_player(name_list, index):
+    pass
 
