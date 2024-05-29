@@ -39,7 +39,6 @@ def add_new_player(team_id):
     player_name = input("Enter player's name: ").title()
     jersey_number = int(input("Enter player's jersey number: "))
     team_name = Team.find_by_id(team_id).name
-    print(f"team name: {team_name} + jersey number: {jersey_number} + player name: {player_name}")
     Player.create(player_name, team_name, jersey_number)
     print("Player created!")
 

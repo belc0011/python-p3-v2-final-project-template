@@ -35,7 +35,7 @@ def main():
                 elif choice3 == 2:
                     add_new_player(choice2)
                 elif choice3 == 3:
-                    coach_info(choice2) ##after this it prints menu1 again??
+                    coach_info(choice2)
         elif menu1_choice == 2:
             create_team()
         else:
