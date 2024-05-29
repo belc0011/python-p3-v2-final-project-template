@@ -59,6 +59,8 @@ def main():
                     add_new_player(choice2)
                 elif choice3 == 3:
                     coach_info(choice2)
+                elif choice3 == 4:
+                    set_coach(choice2)
         elif choice1 == 2:
             create_team()
         else:
@@ -76,6 +78,7 @@ def menu3():
     print("1. List current players on team")
     print("2. Add a new player to the team")
     print("3. List current coach info")
+    print("4. Update coach info")
     print("0. Exit the program")
 
 def menu4():
