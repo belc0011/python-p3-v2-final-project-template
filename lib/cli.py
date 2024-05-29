@@ -10,7 +10,8 @@ from helpers import (
     add_new_player,
     coach_info,
     delete_player,
-    update_player
+    update_player,
+    set_coach
 )
 from db.player import Player
 from db.team import Team
