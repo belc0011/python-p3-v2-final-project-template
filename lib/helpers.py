@@ -49,5 +49,6 @@ def coach_info(team_id):
     print(Team.find_by_id(team_id).coach)
 
 def delete_player(name_list, index):
-    pass
+    player = Player.find_by_name(name_list[index])
+    print(player)
 

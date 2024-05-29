@@ -40,7 +40,11 @@ def main():
                     if choice4 == 0:
                         exit_program()
                     elif choice4 == 1:
-                        delete_player(players, choice4)
+                        choice5 = int(input("Select the number for the player to delete, or press 0 to exit: "))
+                        if choice5 == 0:
+                            exit_program()
+                        else:
+                            delete_player(players, choice5)
                     elif choice4 == 2:
                         pass
                 elif choice3 == 2:
