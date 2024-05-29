@@ -39,7 +39,7 @@ def team_info_printer(id):
     print(f"Menu for {team.name}")
 
 def add_new_player(team_id):
-    player_name = input("Enter player's name: ").title()
+    player_name = input("Enter player's first and last name: ").title()
     jersey_number = int(input("Enter player's jersey number: "))
     team_name = Team.find_by_id(team_id).name
     Player.create(player_name, team_name, jersey_number)
