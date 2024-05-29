@@ -2,27 +2,59 @@
 
 from helpers import (
     exit_program,
-    helper_1
+    create_team,
+    team_info_printer,
+    players_by_team,
+    print_all_teams,
+    get_all_players,
+    add_new_player,
+    coach_info
 )
-
+from db.player import Player
+from db.team import Team
 
 def main():
     while True:
-        menu()
-        choice = input("> ")
-        if choice == "0":
+        menu1_choice = menu1()
+        if menu1_choice == 0:
             exit_program()
-        elif choice == "1":
-            helper_1()
+        elif menu1_choice == 1:
+            print_all_teams()
+            menu2()
+            choice2 = int(input("> ")) ##choice2 should hold team id
+            if choice2 == 0:
+                exit_program()
+            else:
+                team_info_printer(choice2)
+                menu3()
+                choice3 = int(input("> "))
+                if choice3 == 0:
+                    exit_program()
+                elif choice3 == 1:
+                    get_all_players(choice2)
+                elif choice3 == 2:
+                    add_new_player(choice2)
+                elif choice3 == 3:
+                    coach_info(choice2) ##after this it prints menu1 again??
+        elif menu1_choice == 2:
+            create_team()
         else:
             print("Invalid choice")
-
-
-def menu():
+def menu1():
     print("Please select an option:")
     print("0. Exit the program")
-    print("1. Some useful function")
+    print("1. List available teams")
+    print("2. Add a team")
+    return int(input("> "))
 
+def menu2():
+    print("Select the number for the team to diplay, or press 0 to exit the program: ")
+
+def menu3():
+    print("1. List current players on team")
+    print("2. Add a new player to the team")
+    print("3. List current coach info")
+    print("0. Exit the program")
 
 if __name__ == "__main__":
     main()
