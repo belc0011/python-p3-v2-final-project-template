@@ -33,7 +33,7 @@ class Player:
     
     @team.setter
     def team(self, team):
-        self._team = team ## team here is a string, not an object
+        self._team = team 
     
     @property
     def team_id(self):

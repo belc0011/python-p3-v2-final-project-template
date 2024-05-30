@@ -39,7 +39,7 @@ class Team:
             self._coach = coach.title()
         else:
             raise ValueError(
-                "Cach name must be a non-empty string"
+                "Coach name must be a non-empty string"
             )
 
     @classmethod

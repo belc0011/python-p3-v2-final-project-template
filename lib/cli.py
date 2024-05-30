@@ -4,7 +4,6 @@ from helpers import (
     exit_program,
     create_team,
     team_info_printer,
-    players_by_team,
     print_all_teams,
     get_all_players,
     add_new_player,

@@ -9,13 +9,6 @@ def create_team():
     coach = input("Enter name of coach: ").title()
     Team.create(team, coach)
     print("Team successfully created")
-def players_by_team():
-    ## prints list of players on team
-    team = input("Enter team name: ").title()
-    team_list = Player.find_by_team(team) ## method returns a list of player objects
-    for team in team_list: ## cycles through list of player objects one by one
-        if team[1] == team:
-            print(team[0])
 
 def print_all_teams():
     teams = Team.get_all()
