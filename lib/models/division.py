@@ -63,7 +63,6 @@ class Division:
         self.id = CURSOR.lastrowid
         type(self).divisions[self.id] = self
 
-        print("Saved division:", self.name)
 
     @classmethod
     def create(cls, name):

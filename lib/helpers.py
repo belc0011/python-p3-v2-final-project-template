@@ -1,6 +1,7 @@
 # lib/helpers.py
 from models.player import Player
 from models.team import Team
+from models.division import Division
 
 def create_team():
     team = input("Enter the team name, or type 0 to exit: ").title()
@@ -93,3 +94,28 @@ def player_search():
             player_found = True
     if (not player_found):
         print("Player not found. Please check the spelling and ensure you include the first and last name separated by a space.")
+
+def print_all_divisions():
+    print("print all divisions called")
+    divisions = Division.get_all()
+    print(divisions)
+    for (index, division) in enumerate(divisions):
+        print(f"{index + 1}. {division.name}")
+
+def create_division():
+    name = input("Enter the division name, or type 0 to exit: ").title()
+    if name == "0":
+        exit_program()
+    Division.create(name)
+    print("Division successfully created")
+
+def team_search():
+    team_name = input("Enter the team name: ").title()
+    team_list = Team.get_all()
+    team_found = False
+    for team in team_list:
+        if team.name == team_name:
+            print(f"{team_name} is in the {team.division} Division")
+            team_found = True
+    if (not team_found):
+        print("Team not found. Please check the spelling and try again.")

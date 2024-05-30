@@ -15,6 +15,16 @@ def seed_database():
     Division.create_table()
 
     # Create seed data
+    east = Division.create("East")
+    west = Division.create("West")
+    south = Division.create("South")
+    north = Division.create("North")
+    east_central = Division.create("East Central")
+    west_central = Division.create("West Central")
+    south_east = Division.create("South East")
+    north_east = Division.create("North East")
+    north_west = Division.create("North West")
+    south_west = Division.create("South West")
     arsenal = Team.create("Arsenal", "Mikel Arteta", "East Central")
     liverpool = Team.create("Liverpool", "Arne Slot", "East Central")
     real_madrid = Team.create("Real Madrid", "Carlo Ancelotti", "South East")
