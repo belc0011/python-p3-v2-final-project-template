@@ -67,6 +67,7 @@ def set_coach(team_id):
     team = Team.find_by_id(team_id)
     new_coach = input("Enter name of new coach: ")
     team.coach = new_coach.title()
+    Team.update(team)
     print("Coach successfully updated!")
 
 def delete_player(name_list, index):
