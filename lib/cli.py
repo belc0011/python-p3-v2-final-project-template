@@ -31,7 +31,7 @@ def main():
             if choice2 == 0:
                 exit_program()
             else:
-                team_info_printer(choice2)
+                choice2 = team_info_printer(choice2)
                 menu3()
                 choice3 = int(input("> "))
                 if choice3 == 0:

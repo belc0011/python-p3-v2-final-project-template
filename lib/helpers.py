@@ -40,6 +40,7 @@ def team_info_printer(id):
     if (team):
         print(f"Menu for {team.name}")
         team_found = True
+        return id
     else:
         while (not team_found):
             team_id = int(input("Invalid choice, please select a number from the list above, or enter 0 to exit the program> "))
@@ -50,6 +51,7 @@ def team_info_printer(id):
                 if (team):
                     print(f"Menu for {team.name}")
                     team_found = True
+                    return team_id
 
 def add_new_player(team_id):
     player_name = input("Enter player's first and last name: ").title()
