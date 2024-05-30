@@ -36,7 +36,13 @@ def exit_program():
 
 def team_info_printer(id):
     team = Team.find_by_id(id)
-    print(f"Menu for {team.name}")
+    if (team):
+        print(f"Menu for {team.name}")
+        team_found = True
+    else:
+        print("Invalid choice, please select a number from the list above.")
+        team_found = False
+    return team_found
 
 def add_new_player(team_id):
     player_name = input("Enter player's first and last name: ").title()

@@ -31,8 +31,14 @@ def main():
             if choice2 == 0:
                 exit_program()
             else:
-                team_info_printer(choice2)
-                menu3()
+                players = team_info_printer(choice2)
+                if (players):
+                    menu3()
+                else:
+                    choice2 = int(input("> "))
+                    while (not players):
+                        players = team_info_printer(choice2)
+                        choice2 = int(input("> "))
                 choice3 = int(input("> "))
                 if choice3 == 0:
                     exit_program()
@@ -56,6 +62,8 @@ def main():
                                 exit_program()
                             else:
                                 update_player(players, choice5)
+                        else:
+                            print("Invalid choice")
                     else:
                         print("This team currently has no players.")
                 elif choice3 == 2:
@@ -66,6 +74,8 @@ def main():
                     set_coach(choice2)
                 elif choice3 == 5:
                     team_size(choice2)
+                else:
+                    print("Invalid choice")
         elif choice1 == 2:
             create_team()
         elif choice1 == 3:
