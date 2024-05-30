@@ -5,27 +5,29 @@ CURSOR = CONN.cursor()
 
 from lib.models.player import Player
 from lib.models.team import Team
+from lib.models.division import Division
 
 def seed_database():
     Player.drop_table()
     Team.drop_table()
     Team.create_table()
     Player.create_table()
+    Division.create_table()
 
     # Create seed data
-    arsenal = Team.create("Arsenal", "Mikel Arteta")
-    liverpool = Team.create("Liverpool", "Arne Slot")
-    real_madrid = Team.create("Real Madrid", "Carlo Ancelotti")
-    manchester_city = Team.create("Manchester City", "Pep Guardiola")
-    manchester_united = Team.create("Manchester United", "Erik Ten Hag")
-    fulham = Team.create("Fulham", "Marco Silva")
-    everton = Team.create("Everton", "Sean Dyche")
-    chelsea = Team.create("Chelsea", "Enzo Maresca")
-    fc_barcelona = Team.create("FC Barcelona", "Hansi Flick")
-    juventus = Team.create("Juventus", "Massimilliano Allegri")
-    napoli = Team.create("Napoli", "Luciano Spalletti")
-    inter_milan = Team.create("Inter Milan", "Simone Inzaghi")
-    atletico_madrid = Team.create("Atletico de Madrid", "Diego Simeone")
+    arsenal = Team.create("Arsenal", "Mikel Arteta", "East Central")
+    liverpool = Team.create("Liverpool", "Arne Slot", "East Central")
+    real_madrid = Team.create("Real Madrid", "Carlo Ancelotti", "South East")
+    manchester_city = Team.create("Manchester City", "Pep Guardiola", "North East")
+    manchester_united = Team.create("Manchester United", "Erik Ten Hag", "West Central")
+    fulham = Team.create("Fulham", "Marco Silva", "West Central")
+    everton = Team.create("Everton", "Sean Dyche", "South")
+    chelsea = Team.create("Chelsea", "Enzo Maresca", "South")
+    fc_barcelona = Team.create("FC Barcelona", "Hansi Flick", "North")
+    juventus = Team.create("Juventus", "Massimilliano Allegri", "North")
+    napoli = Team.create("Napoli", "Luciano Spalletti", "North East")
+    inter_milan = Team.create("Inter Milan", "Simone Inzaghi", "West")
+    atletico_madrid = Team.create("Atletico de Madrid", "Diego Simeone", "West")
     Player.create("Bukayo Saka", "Arsenal", 7, 1)
     Player.create("Gabriel Jesus", "Arsenal", 9, 1)
     Player.create("Mohammad Salah", "Liverpool", 11, 2)

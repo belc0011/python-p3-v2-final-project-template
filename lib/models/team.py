@@ -60,7 +60,7 @@ class Team:
         return self._division_id
     
     @division_id.setter
-    def division(self, division_id):
+    def division_id(self, division_id):
         self._division_id = division_id
     @classmethod
     def create_table(cls):
@@ -106,7 +106,7 @@ class Team:
         from .division import Division
         divisions = Division.get_all()
         for instance in divisions:
-            if instance.name == name:
+            if instance.name == division:
                 division_id = instance.id
         team = cls(name, coach, division, division_id)
         team.save()
