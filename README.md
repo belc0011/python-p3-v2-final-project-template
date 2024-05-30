@@ -1,7 +1,7 @@
 # MSoccer League Manager
 
 ## Introduction
-This project is a Command Line Interface designed for the purpose of organizing a soccer league. This CLI is useful for keeping rack of the teams in a particular league, information about those teams (such as the current coach), as well as all of the players on each of the teams. Currently the only information capable of being stored for each player is the team they play for and their jersey number. However, future implementations may include the ability to store additional stats for each player (such as goals scored, assists, and yellow/red cards received), as well as the ability to search by coach's name.
+This project is a Command Line Interface designed for the purpose of organizing a soccer league. This CLI is useful for an individual running a league with multiple teams. It is useful for keeping track of the teams in a particular league, information about those teams (such as the current coach), all of the players on each of the teams, and each player's jersey number. Future implementations may include the ability to store additional stats for each player (such as goals scored, assists, and yellow/red cards received), as well as the ability to search by coach's name.
 
 ## Important Files
 
