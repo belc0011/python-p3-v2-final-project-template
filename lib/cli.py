@@ -12,7 +12,8 @@ from helpers import (
     delete_player,
     update_player,
     set_coach,
-    team_size
+    team_size,
+    player_search
 )
 from models.player import Player
 from models.team import Team
@@ -67,6 +68,8 @@ def main():
                     team_size(choice2)
         elif choice1 == 2:
             create_team()
+        elif choice1 == 3:
+            player_search()
         else:
             print("Invalid choice")
 def menu1():
@@ -74,6 +77,7 @@ def menu1():
     print("0. Exit the program")
     print("1. List available teams")
     print("2. Add a team")
+    print("3. Search for a player")
 
 def menu2():
     print("Select the number for the team to diplay, or press 0 to exit the program: ")

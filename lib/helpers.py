@@ -73,3 +73,14 @@ def team_size(team_id):
     team = Team.find_by_id(team_id)
     player_list = Team.players(team)
     print(f"There are {len(player_list)} total players on {team.name}")
+
+def player_search():
+    player_name = input("Enter the player's first and last name: ").title()
+    player_list = Player.get_all()
+    player_found = False
+    for player in player_list:
+        if player.name == player_name:
+            print(f"{player_name} plays for {player.team}")
+            player_found = True
+    if (not player_found):
+        print("Player not found. Please check the spelling and ensure you include the first and last name separated by a space.")
