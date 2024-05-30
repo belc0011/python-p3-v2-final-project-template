@@ -31,14 +31,8 @@ def main():
             if choice2 == 0:
                 exit_program()
             else:
-                players = team_info_printer(choice2)
-                if (players):
-                    menu3()
-                else:
-                    choice2 = int(input("> "))
-                    while (not players):
-                        players = team_info_printer(choice2)
-                        choice2 = int(input("> "))
+                team_info_printer(choice2)
+                menu3()
                 choice3 = int(input("> "))
                 if choice3 == 0:
                     exit_program()
