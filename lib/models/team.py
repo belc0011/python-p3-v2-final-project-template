@@ -8,13 +8,15 @@ class Team:
     # Dictionary of objects saved to the database.
     teams = {}
 
-    def __init__(self, name, coach, id=None):
+    def __init__(self, name, coach, division, division_id=None, id=None):
         self.id = id
         self.name = name
         self.coach = coach
+        self.division = division
+        self.division_id = division_id
 
     def __repr__(self):
-        return f"{self.name}, {self.coach}>"
+        return f"{self.name}, coached by {self.coach} in the {self.division}>"
 
     @property
     def name(self):
@@ -41,7 +43,25 @@ class Team:
             raise ValueError(
                 "Coach name must be a non-empty string"
             )
+    
+    @property
+    def division(self):
+        return self._division
+    
+    @division.setter
+    def division(self, division):
+        if isinstance(division, str) and len(division):
+            self._division = division.title()
+        else:
+            raise ValueError("Division name must be a non-empty string")
 
+    @property
+    def division_id(self):
+        return self._division_id
+    
+    @division_id.setter
+    def division(self, division_id):
+        self._division_id = division_id
     @classmethod
     def create_table(cls):
         """ Create a new table to persist the attributes of Team instances """
@@ -49,7 +69,9 @@ class Team:
             CREATE TABLE IF NOT EXISTS teams (
             id INTEGER PRIMARY KEY,
             name TEXT,
-            coach TEXT)
+            coach TEXT,
+            division TEXT,
+            division_id INTEGER)
         """
         CURSOR.execute(sql)
         CONN.commit()
@@ -68,22 +90,25 @@ class Team:
         Update object id attribute using the primary key value of new row.
         Save the object in local dictionary using table row's PK as dictionary key"""
         sql = """
-            INSERT INTO teams (name, coach)
-            VALUES (?, ?)
+            INSERT INTO teams (name, coach, division, division_id)
+            VALUES (?, ?, ?, ?)
         """
 
-        CURSOR.execute(sql, (self.name, self.coach))
+        CURSOR.execute(sql, (self.name, self.coach, self.division, self.division_id))
         CONN.commit()
 
         self.id = CURSOR.lastrowid
         type(self).teams[self.id] = self
 
-        print("Saved team:", self.name, self.coach)
-
     @classmethod
-    def create(cls, name, coach):
-        """ Initialize a new Team instance and save the object to the database """
-        team = cls(name, coach)
+    def create(cls, name, coach, division, division_id=None):
+        """ Initialize a new division object and save the object to the database """
+        from .division import Division
+        divisions = Division.get_all()
+        for instance in divisions:
+            if instance.name == name:
+                division_id = instance.id
+        team = cls(name, coach, division, division_id)
         team.save()
         return team
 
@@ -91,10 +116,10 @@ class Team:
         """Update the table row corresponding to the current Team instance."""
         sql = """
             UPDATE teams
-            SET name = ?, coach = ?
+            SET name = ?, coach = ?, division = ?, division_id = ?
             WHERE id = ?
         """
-        CURSOR.execute(sql, (self.name, self.coach, self.id))
+        CURSOR.execute(sql, (self.name, self.coach, self.division, self.division_id, self.id))
         CONN.commit()
 
     def delete(self):
@@ -125,9 +150,11 @@ class Team:
             # ensure attributes match row values in case local instance was modified
             team.name = row[1]
             team.coach = row[2]
+            team.division = row[3]
+            team.division_id = row[4]
         else:
             # not in dictionary, create new instance and add to dictionary
-            team = cls(row[1], row[2])
+            team = cls(row[1], row[2], row[3], row[4])
             team.id = row[0]
             cls.teams[team.id] = team
         return team
