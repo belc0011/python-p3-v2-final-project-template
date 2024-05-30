@@ -1,7 +1,7 @@
-# Monica Garcia's Phase 3 CLI+ORM Project
+# MSoccer League Manager
 
 ## Introduction
-Test
+This project is a Command Line Interface designed for the purpose of organizing a soccer league. This CLI is useful for keeping rack of the teams in a particular league, information about those teams (such as the current coach), as well as all of the players on each of the teams. Currently the only information capable of being stored for each player is the team they play for and their jersey number. However, future implementations may include the ability to store additional stats for each player (such as goals scored, assists, and yellow/red cards received).
 
 ## Generating Your Environment
 
