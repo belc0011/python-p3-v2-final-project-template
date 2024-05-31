@@ -50,7 +50,7 @@ class Player:
             name TEXT,
             team TEXT,
             jersey_number INTEGER,
-            team_id INTEGER)
+            FOREIGN KEY (team_id) REFERENCES teams(id))
         """
         CURSOR.execute(sql)
         CONN.commit()

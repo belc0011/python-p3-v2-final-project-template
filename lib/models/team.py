@@ -68,7 +68,7 @@ class Team:
             name TEXT,
             coach TEXT,
             division TEXT,
-            division_id INTEGER)
+            FOREIGN KEY (division_id) REFERENCES divisions(id))
         """
         CURSOR.execute(sql)
         CONN.commit()

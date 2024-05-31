@@ -151,7 +151,7 @@ class Division:
         row = CURSOR.execute(sql, (name,)).fetchone()
         return cls.instance_from_db(row) if row else None
 
-    def players(self):
+    def teams(self):
         """Return list of teams associated with current division object"""
         from models.team import Team
         sql = """
