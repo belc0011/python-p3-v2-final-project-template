@@ -15,7 +15,8 @@ from helpers import (
     player_search,
     print_all_divisions,
     create_division,
-    team_search
+    team_search,
+    division_info_printer
 )
 from models.player import Player
 from models.team import Team
@@ -23,17 +24,20 @@ from models.team import Team
 def main():
     while True:
         menu1()
-        choice1 = int(input("> "))
+        choice1 = int(input("> ")) 
         if choice1 == 0:
             exit_program()
         elif choice1 == 1:
             print_all_divisions()
+            division_id = int(input("Select the number next to the division in the list: "))
+            division_info_printer(division_id)
             menu2()
             choice2 = int(input("> "))
             if choice2 == 0:
                 exit_program()
             elif choice2 == 1:
-                print_all_teams()
+                print(division_id)
+                print_all_teams(division_id)
                 menu3()
                 choice3 = int(input("> ")) ##choice3 holds team id
                 if choice3 == 0:
@@ -96,6 +100,7 @@ def menu1():
     print("1. List available divisions")
     print("2. Add a division")
     print("3. Search for a team")
+
 def menu2():
     print("Please select an option:")
     print("0. Exit the program")

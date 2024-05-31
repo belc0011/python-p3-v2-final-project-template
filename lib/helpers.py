@@ -11,10 +11,11 @@ def create_team():
     Team.create(team, coach)
     print("Team successfully created")
 
-def print_all_teams():
+def print_all_teams(division_id):
     teams = Team.get_all()
     for (index, team) in enumerate(teams):
-        print(f"{index + 1}. {team.name}")
+        if team.division_id == division_id:
+            print(f"{index + 1}. {team.name}")
 
 def get_all_players(id):
     team = Team.find_by_id(id)
@@ -47,6 +48,24 @@ def team_info_printer(id):
                     team_found = True
                     return team_id
 
+def division_info_printer(division_id):
+    division = Division.find_by_id(division_id)
+    division_found = False
+    if (division):
+        print(f"Menu for {division.name}")
+        division_found = True
+        return division_id
+    else:
+        while (not division_found):
+            division_id = int(input("Invalid choice, please select a number from the list above, or enter 0 to exit the program> "))
+            if division_id == 0:
+                exit_program()
+            else:
+                division = Division.find_by_id(division_id)
+                if (division):
+                    print(f"Menu for {division.name}")
+                    division_found = True
+                    return division_id
 def add_new_player(team_id):
     player_name = input("Enter player's first and last name: ").title()
     jersey_number = int(input("Enter player's jersey number: "))
