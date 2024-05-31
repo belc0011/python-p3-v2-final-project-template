@@ -11,7 +11,6 @@ def create_team(division_id=None):
     division = Division.find_by_id(division_id).name
     Team.create(team, coach, division)
     print("Team successfully created")
-    exit_program()
 
 def print_all_teams(division_id):
     teams = Team.get_all()
@@ -115,7 +114,7 @@ def update_player(name_list, index):
 def team_size(team_id):
     team = Team.find_by_id(team_id)
     player_list = Team.players(team)
-    print(f"There are {len(player_list)} total players on {team.name}")
+    print(f"There is/are {len(player_list)} total player(s) on {team.name}")
 
 def player_search():
     player_name = input("Enter the player's first and last name: ").title()
