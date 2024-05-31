@@ -10,6 +10,7 @@ from lib.models.division import Division
 def seed_database():
     Player.drop_table()
     Team.drop_table()
+    Division.drop_table()
     Team.create_table()
     Player.create_table()
     Division.create_table()

@@ -3,19 +3,33 @@ from models.player import Player
 from models.team import Team
 from models.division import Division
 
-def create_team():
+def create_team(division_id=None):
     team = input("Enter the team name, or type 0 to exit: ").title()
     if team == "0":
         exit_program()
     coach = input("Enter name of coach: ").title()
-    Team.create(team, coach)
+    division = Division.find_by_id(division_id).name
+    Team.create(team, coach, division)
     print("Team successfully created")
+    exit_program()
 
 def print_all_teams(division_id):
     teams = Team.get_all()
+    at_least = False
     for (index, team) in enumerate(teams):
         if team.division_id == division_id:
             print(f"{index + 1}. {team.name}")
+            at_least = True
+    if (not at_least):
+        team_print_choice = int(input("No teams currently in this division. Press 1 to add a new team or 0 to exit: "))
+        if team_print_choice == 0:
+            exit_program()
+        elif team_print_choice == 1:
+            create_team(division_id)
+        else:
+            print("Invalid selection, exiting program")
+            exit_program()
+            
 
 def get_all_players(id):
     team = Team.find_by_id(id)
@@ -115,9 +129,7 @@ def player_search():
         print("Player not found. Please check the spelling and ensure you include the first and last name separated by a space.")
 
 def print_all_divisions():
-    print("print all divisions called")
     divisions = Division.get_all()
-    print(divisions)
     for (index, division) in enumerate(divisions):
         print(f"{index + 1}. {division.name}")
 

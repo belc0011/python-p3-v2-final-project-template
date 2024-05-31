@@ -36,7 +36,6 @@ def main():
             if choice2 == 0:
                 exit_program()
             elif choice2 == 1:
-                print(division_id)
                 print_all_teams(division_id)
                 menu3()
                 choice3 = int(input("> ")) ##choice3 holds team id
@@ -83,7 +82,8 @@ def main():
                     else:
                         print("Invalid choice")
             elif choice2 == 2:
-                create_team()
+                create_team(division_id)
+                exit_program()
             elif choice2 == 3:
                 player_search()
             else:
