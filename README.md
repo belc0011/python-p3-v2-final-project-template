@@ -7,7 +7,7 @@ This project is a Command Line Interface designed for the purpose of organizing 
 
 ### cli.py
 
-The CLI is designed to print specific menus in response to user input. The main menu gives the user the option to generate a list of all available teams, add a new team, or search by player name to see which team they belong to. Depending on which option is selected, the CLI will then display the appropriate new menu related to their option. If the user chooses to display all available teams, they will then be prompted to select a team from the list, which will in turn display a new menu providing them with options for that team (display current players, add a new player, display current coach information, or update the coach information). Any options related to updating existing information or adding new information will result in a confirmation message to let the user know the changes were successful. At any point in the process, the user may exit the program by typing "0" followed by the enter key. The CLI is designed to automatically title case team names, coach names and player names, regardless of how they are entered by the user.
+The CLI is designed to print specific menus in response to user input. The main menu gives the user the option to generate a list of all available divisions, add a new division, search by team name, or search by player name to see which team they belong to. Depending on which option is selected, the CLI will then display the appropriate new menu related to their option. If the user chooses to display all available divisions, they will then be prompted to select a division from the list, which will in turn display a new menu providing them with options for that division (display current teams or add a new team). Subsequent choices will display new menus giving the user the option to display current players on a team, add a player, display coach information for a team, or update coach information. Any options related to updating existing information or adding new information will result in a confirmation message to let the user know the changes were successful. At any point in the process, the user may exit the program by typing "0" followed by the enter key. The CLI is designed to automatically title case division names, team names, coach names and player names, regardless of how they are entered by the user.
 
 
 ### helpers.py
@@ -15,10 +15,11 @@ The CLI is designed to print specific menus in response to user input. The main 
 The helpers.py file holds all of the methods responsible for carrying out the requests made by the user when prompted. A brief description of each method is provided below.
 
 - create_team: Creates a new Team object and persist the changes to the database. It prompts the user for the team name as well as the coach's name, then utilizes the create method to ensure the changes are persisted to the backend.
-- print_all_teams: Generates an ordered list of all available teams, which allows the user to use a number in order to select a specific team.
+- print_all_teams: Generates an ordered list of all available teams for the selected division, which allows the user to use a number in order to select a specific team.
 - get_all_players: Generates an ordered list of all players belonging to the specified team, which allows the user to use a number in order to select a specific player.
 - exit_program: Calls the built-in exit() function provided by Python to stop the script and return to the terminal.
 - team_info_printer: Displays the name and current coach for a team based on the user input. Includes logic to handle invalid selections, re-prompting the user to choose a number corresponding to a team in the list or to choose "0" to exit the program.
+- division_info_printer: Displays the menu for teh selected division, including division's name for confirmation.
 - add_new_player: Provides the appropriate user prompts to gather the information necessary to create a new Player object and persist it to the database by calling the create method for the Player class.
 - coach_info: Prints the coach's name for the selected team.
 - set_coach: Allows the user to change the coach's name for the selected team, then persists the changes to the database by calling the update method for the Team class.
@@ -26,6 +27,9 @@ The helpers.py file holds all of the methods responsible for carrying out the re
 - update_player: Allows the user to change the spelling of the name of a player on the team (method included to make correcting typos more easily). Persists changes to the backend by calling the update method in the Player class.
 - team_size: Displays the total number of players on the team currently.
 - player_search: Allows user to search for a player by name rather than having to select each team and generate a list of players one team at a time. Set to automatically title case the user's input so they do not have to worry about capitalization.
+- print_all_division: Prints name of all divisions currently in database.
+- create_division: Allows the user to create a new division not currently in the database.
+- team_search: Allows the user to serach for a team to determine which division it is in.
 
 ### init.py
 

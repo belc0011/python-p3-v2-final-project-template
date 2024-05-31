@@ -84,14 +84,17 @@ def main():
             elif choice2 == 2:
                 create_team(division_id)
                 exit_program()
-            elif choice2 == 3:
-                player_search()
             else:
                 print("Invalid choice")
         elif choice1 == 2:
             create_division()
         elif choice1 == 3:
             team_search()
+        elif choice1 == 4:
+                player_search()
+        else:
+            print("Invalid selection, exiting program")
+            exit_program()
         
 
 def menu1():
@@ -100,13 +103,13 @@ def menu1():
     print("1. List available divisions")
     print("2. Add a division")
     print("3. Search for a team")
+    print("4. Search for a player")
 
 def menu2():
     print("Please select an option:")
     print("0. Exit the program")
     print("1. List available teams")
     print("2. Add a team")
-    print("3. Search for a player")
 
 def menu3():
     print("Select the number for the team to diplay, or press 0 to exit the program: ")

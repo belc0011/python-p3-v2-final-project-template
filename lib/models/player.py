@@ -1,7 +1,5 @@
-import sqlite3
 
-CONN = sqlite3.connect('soccer.db')
-CURSOR = CONN.cursor()
+from models.__init__ import CONN, CURSOR
 
 class Player:
     #Dictionary to store all player objects
